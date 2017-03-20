@@ -5,3 +5,11 @@
   width: 25%;
   height: 100vh;
 }
+
+.film {
+  padding: 10px;
+}
+
+.opening {
+  line-height: 22px;
+}
