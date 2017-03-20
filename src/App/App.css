@@ -1,3 +1,8 @@
+header {
+  background-color: gray;
+  height: 100px;
+}
 
-
-
+.App {
+  background-color: blanchedAlmond;
+}
