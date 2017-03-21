@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './PeopleCard.css';
 
 class PeopleCard extends Component {
-  constructor() {
+  constructor({ peopleInfo }) {
     super();
     this.state = {
       name: '',
@@ -11,28 +11,18 @@ class PeopleCard extends Component {
       population: ''
     }
   }
-  
+
+
+
   render() {
     return (
-      <div>
-        <p>{this.state.name}</p>
-        <p>{this.state.species}</p>
-        <p>{this.state.homeworld}</p>
-        <p>{this.state.population}</p>
+      <div className="people-card">
+        <p>heyy{this.state.name}</p>
       </div>
     )
   }
-  
-  componentWillMount() {
-    fetch('http://swapi.co/api/people/')
-      .then((response) => {
-        return response.json()
-      })
-      .then((json) => {
-        console.log(json.results);
-        this.setState({ name: json.results })
-      });
-  }
+
+
 }
 
 PeopleCard.propTypes = {
