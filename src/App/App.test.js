@@ -22,5 +22,17 @@ describe('App', () => {
 
     expect(wrapper.find('SideText').length).toBe(1);
   });
+  
+  it('should store films, vehicles, planets, people in state', () => {
+    const wrapper = shallow(<App />);
+    let mockState = {
+      film: {},
+      vehicles: {},
+      planets: {},
+      people: {}
+    }
+    
+    expect(wrapper.state()).toMatchObject(mockState);
+  });
 
 });
