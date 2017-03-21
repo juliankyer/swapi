@@ -1,0 +1,12 @@
+button {
+  border: 2px solid black;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.favorites-button {
+  background-color: lightBlue;
+}

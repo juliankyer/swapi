@@ -1,0 +1,15 @@
+.side-text {
+  float: left;
+  background-color: white;
+  border: 2px solid black;
+  width: 25%;
+  height: 100vh;
+}
+
+.film {
+  padding: 10px;
+}
+
+.opening {
+  line-height: 22px;
+}
