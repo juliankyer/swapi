@@ -9,7 +9,8 @@ class App extends Component {
     super();
     this.state = {
       film: {},
-      people: {results: []}
+      people: {results: []},
+      peopleClicked: true
     }
   }
 
@@ -34,7 +35,8 @@ class App extends Component {
   }
 
   handleClick() {
-
+    console.log(this.state.peopleClicked);
+    this.setState({ peopleClicked: !this.state.peopleClicked })
   }
 
   render() {
@@ -43,7 +45,8 @@ class App extends Component {
         <header>Star Wars</header>
         <SideText film={this.state.film}/>
         <Controls handleClick={ ()=> this.handleClick() }/>
-        <Board peopleInfo={ this.state.people.results }/>
+        {this.state.peopleClicked ? <Board peopleInfo={ this.state.people.results }/> : null}
+
       </div>
     );
   }
@@ -52,6 +55,7 @@ class App extends Component {
 App.propTypes = {
   film: React.PropTypes.object,
   people: React.PropTypes.array,
+  peopleClicked: React.PropTypes.string
 };
 
 export default App;
