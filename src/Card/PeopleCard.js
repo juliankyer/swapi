@@ -2,42 +2,52 @@ import React, { Component } from 'react';
 import './PeopleCard.css';
 
 class PeopleCard extends Component {
-  constructor({ peopleInfo }) {
+  constructor(props) {
     super();
     this.state = {
-      name: '',
-      homeland: '',
-      species: '',
-      population: ''
+      homeworld: {},
+      species: {},
     }
-
-    this.setState({name: this.peopleInfo.name})
   }
 
-  getHomeWorld(peopleInfo) {
-    fetch(peopleInfo)
+  componentDidMount() {
+    this.setState({ name: this.props.name })
+
+    fetch(this.props.peopleInfo.homeworld)
     .then(response => {
       return response.json()
     })
     .then(json => {
-      console.log(json);
       this.setState({ homeworld: json})
     })
+
+    fetch(this.props.peopleInfo.species)
+    .then(response => {
+      return response.json()
+    })
+    .then(json => {
+      this.setState({ species: json})
+    })
   }
+
 
   render() {
     return (
       <div className="people-card">
-        <p>{this.state.name}</p>
-        <p>{this.getHomeWorld(this.peopleInfo.homeworld)}</p>
+        <button className="fav">Fav</button>
+        <p>name: {this.props.peopleInfo.name}</p>
+        <p>homeworld: {this.state.homeworld.name}</p>
+        <p>population: {this.state.homeworld.population}</p>
+        <p>species: {this.state.species.name}</p>
       </div>
-    )  
+    )
   }
 
-
-
-
-
 }
+
+PeopleCard.propTypes = {
+  homeworld: React.PropTypes.object,
+  species: React.PropTypes.object
+};
 
 export default PeopleCard;
