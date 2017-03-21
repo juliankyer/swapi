@@ -14,5 +14,6 @@ const Controls = ({ handleClick }) => {
     </div>
   )
 }
+//make call for people in here on click
 
 export default Controls;
