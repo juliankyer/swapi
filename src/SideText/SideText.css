@@ -1,15 +1,35 @@
+
 .side-text {
   float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: white;
   border: 2px solid black;
   width: 25%;
   height: 100vh;
+  perspective: 400px;
+  text-align: justify;
+  line-height: 180%;
 }
 
 .film {
-  padding: 10px;
+  position: relative;
+  top: -100px;
+  transform-origin: 30% 100%;
+  animation: crawl 20s;
+  animation-iteration-count: infinite;
 }
 
-.opening {
-  line-height: 22px;
+@keyframes crawl {
+  0% {
+    top: 250px;
+    transform: rotateX(20deg) translateZ(0);
+  }
+  100% {
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
 }
+
+
