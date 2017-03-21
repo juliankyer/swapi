@@ -1,12 +1,11 @@
 import React from 'react';
 import './Board.css';
-import Card from '../Card/Card';
+import PeopleCard from '../Card/PeopleCard';
 
-const Board = ({ state }) => {
+const Board = () => {
   return (
     <div className="board">
-      <Card state={ state } />
-    
+      <PeopleCard />
     </div>
   )
 }

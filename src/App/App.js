@@ -9,10 +9,6 @@ class App extends Component {
     super();
     this.state = {
       film: {},
-      vehicles: {},
-      planets: {},
-      people: {},
-      peopleClicked: false
     }
   }
 
@@ -27,35 +23,10 @@ class App extends Component {
         this.setState({ film: json })
     });
     
-    fetch('http://swapi.co/api/people/')
-      .then((response) => {
-        return response.json()
-      })
-      .then((json) => {
-        this.setState({ people: json })
-      });
-      
-      fetch('http://swapi.co/api/vehicles/')
-        .then((response) => {
-          return response.json()
-        })
-        .then((json) => {
-          this.setState({ vehicles: json })
-        });
-        
-      fetch('http://swapi.co/api/planets/')
-        .then((response) => {
-          return response.json()
-        })
-        .then((json) => {
-          this.setState({ planets: json })
-        });
-      
   }
   
   handleClick() {
-    this.setState({ peopleClicked: true });
-    
+    console.log('boom');
   }
 
   render() {
@@ -64,7 +35,7 @@ class App extends Component {
         <header>Star Wars</header>
         <SideText film={this.state.film}/>
         <Controls handleClick={ ()=> this.handleClick() }/>
-        { this.state.peopleClicked ? <Board state={this.state} /> : null}
+        <Board peopleInfo={}/>
       </div>
     );
   }
@@ -72,9 +43,6 @@ class App extends Component {
 
 App.propTypes = {
   film: React.PropTypes.object,
-  vehicles: React.PropTypes.object,
-  planets: React.PropTypes.object,
-  people: React.PropTypes.object
 };
 
 export default App;
