@@ -9,6 +9,7 @@ class App extends Component {
     super();
     this.state = {
       film: {},
+      people: {results: []}
     }
   }
 
@@ -21,12 +22,19 @@ class App extends Component {
       })
       .then((json) => {
         this.setState({ film: json })
+
+      fetch('http://swapi.co/api/people/')
+      .then((response) => {
+        return response.json()
+      })
+      .then((json) => {
+        this.setState({ people: json })
+      });
     });
-    
   }
-  
+
   handleClick() {
-    console.log('boom');
+
   }
 
   render() {
@@ -35,7 +43,7 @@ class App extends Component {
         <header>Star Wars</header>
         <SideText film={this.state.film}/>
         <Controls handleClick={ ()=> this.handleClick() }/>
-        <Board peopleInfo={}/>
+        <Board peopleInfo={ this.state.people.results }/>
       </div>
     );
   }
@@ -43,6 +51,7 @@ class App extends Component {
 
 App.propTypes = {
   film: React.PropTypes.object,
+  people: React.PropTypes.array,
 };
 
 export default App;

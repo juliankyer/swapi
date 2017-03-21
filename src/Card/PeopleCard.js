@@ -2,44 +2,42 @@ import React, { Component } from 'react';
 import './PeopleCard.css';
 
 class PeopleCard extends Component {
-  constructor() {
+  constructor({ peopleInfo }) {
     super();
     this.state = {
       name: '',
-      homeworld: '',
+      homeland: '',
       species: '',
       population: ''
     }
+
+    this.setState({name: this.peopleInfo.name})
   }
-  
+
+  getHomeWorld(peopleInfo) {
+    fetch(peopleInfo)
+    .then(response => {
+      return response.json()
+    })
+    .then(json => {
+      console.log(json);
+      this.setState({ homeworld: json})
+    })
+  }
+
   render() {
     return (
-      <div>
+      <div className="people-card">
         <p>{this.state.name}</p>
-        <p>{this.state.species}</p>
-        <p>{this.state.homeworld}</p>
-        <p>{this.state.population}</p>
+        <p>{this.getHomeWorld(this.peopleInfo.homeworld)}</p>
       </div>
-    )
+    )  
   }
-  
-  componentWillMount() {
-    fetch('http://swapi.co/api/people/')
-      .then((response) => {
-        return response.json()
-      })
-      .then((json) => {
-        console.log(json.results);
-        this.setState({ name: json.results })
-      });
-  }
-}
 
-PeopleCard.propTypes = {
-  name: React.PropTypes.string,
-  homeworld: React.PropTypes.string,
-  species: React.PropTypes.string,
-  population: React.PropTypes.string,
-};
+
+
+
+
+}
 
 export default PeopleCard;
