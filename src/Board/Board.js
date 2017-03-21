@@ -5,7 +5,7 @@ import PeopleCard from '../Card/PeopleCard';
 const Board = ({ peopleInfo }) => {
   let pplMap = peopleInfo.map((peep, index) => {
     return (<PeopleCard key={index}
-                peopleInfo={peep}/>
+                        peopleInfo={peep}/>
             )
   })
 

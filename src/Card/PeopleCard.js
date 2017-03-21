@@ -6,30 +6,38 @@ class PeopleCard extends Component {
     super();
     this.state = {
       name: '',
-      homeworld: '',
+      homeland: '',
       species: '',
       population: ''
     }
+
+    this.setState({name: this.peopleInfo.name})
   }
 
-
+  getHomeWorld(peopleInfo) {
+    fetch(peopleInfo)
+    .then(response => {
+      return response.json()
+    })
+    .then(json => {
+      console.log(json);
+      this.setState({ homeworld: json})
+    })
+  }
 
   render() {
     return (
       <div className="people-card">
-        <p>heyy{this.state.name}</p>
+        <p>{this.state.name}</p>
+        <p>{this.getHomeWorld(this.peopleInfo.homeworld)}</p>
       </div>
-    )
+    )  
   }
 
 
-}
 
-PeopleCard.propTypes = {
-  name: React.PropTypes.string,
-  homeworld: React.PropTypes.string,
-  species: React.PropTypes.string,
-  population: React.PropTypes.string,
-};
+
+
+}
 
 export default PeopleCard;
