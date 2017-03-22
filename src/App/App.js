@@ -10,7 +10,9 @@ class App extends Component {
     this.state = {
       film: {},
       people: {results: []},
-      peopleClicked: true
+      vehicles: {results: []},
+      peopleClicked: true,
+      vehiclesClickec: false
     }
   }
 
@@ -23,6 +25,7 @@ class App extends Component {
       })
       .then((json) => {
         this.setState({ film: json })
+      });
 
       fetch('http://swapi.co/api/people/')
       .then((response) => {
@@ -31,12 +34,20 @@ class App extends Component {
       .then((json) => {
         this.setState({ people: json })
       });
-    });
+
+      fetch('http://swapi.co/api/vehicles/')
+      .then((response) => {
+        return response.json()
+      })
+      .then((json) => {
+        this.setState({ vehicles: json })
+      });
   }
 
-  handleClick() {
+  handleClick(key) {
+    console.log(key);
     console.log(this.state.peopleClicked);
-    this.setState({ peopleClicked: !this.state.peopleClicked })
+    this.setState({ [key]: !this.state[key] })
   }
 
   render() {
@@ -46,8 +57,8 @@ class App extends Component {
              src={require("../Star-Wars-Logo.png")}
              alt='star wars logo'/>
         <SideText film={this.state.film}/>
-        <Controls handleClick={ ()=> this.handleClick() }/>
-        {this.state.peopleClicked ? <Board peopleInfo={ this.state.people.results }/> : null}
+        <Controls handleClick={ (key)=> this.handleClick(key) }/>
+        <Board data={ this.state }/>
       </div>
     );
   }
@@ -56,13 +67,16 @@ class App extends Component {
 App.propTypes = {
   film: React.PropTypes.object,
   people: React.PropTypes.array,
-  peopleClicked: React.PropTypes.string
+  planets: React.PropTypes.array,
+  peopleClicked: React.PropTypes.string,
+  planetsClicked: React.PropTypes.string
 };
 
 export default App;
 
 
-
+// peopleInfo={ this.state.people.results }
+//        vehiclesInfo={ this.state.vehicles.results }
 //state and fetch live in App
 //sidebar component for random text
 //controls component with buttons for people, planets, vehicles, favorites
