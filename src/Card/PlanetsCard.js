@@ -8,6 +8,22 @@ class PlanetsCard extends Component {
       residents: {},
     }
   }
+  
+  checkResidentLength() {
+    if(this.props.planetsInfo.residents.length > 0) {
+      //end up returning a p tag that says no residents
+    } else {
+      let array = this.props.planetsInfo.residents;
+      array.map(resident => {
+        console.log(resident.name)
+        return resident.name})
+    }
+  }
+  
+  componentDidMount() {
+    this.checkResidentLength();
+    console.log(this.props.planetsInfo.residents);
+  }
 
   render() {
     return (
