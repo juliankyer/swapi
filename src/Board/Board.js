@@ -9,7 +9,7 @@ const Board = ({ peopleInfo }) => {
             )
   })
 
-  return <div className="board">dgf{pplMap}</div>
+  return <div className="board">{pplMap}</div>
 }
 
 export default Board;
