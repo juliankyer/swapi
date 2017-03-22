@@ -15,9 +15,9 @@
 
 .film {
   position: relative;
-  top: -100px;
+  top: -10px;
   transform-origin: 30% 100%;
-  animation: crawl 20s;
+  animation: crawl 100s;
   animation-iteration-count: infinite;
 }
 
@@ -31,5 +31,3 @@
     transform: rotateX(25deg) translateZ(-2500px);
   }
 }
-
-
