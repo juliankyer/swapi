@@ -34,9 +34,9 @@ class PeopleCard extends Component {
     return (
       <div className="people-card">
         <p className="person-name">{this.props.peopleInfo.name}</p>
-        <p className="person-world">from {this.state.homeworld.name},</p>
-        <p className="person-pop">population {this.state.homeworld.population}</p>
-        <p className="person-species">{this.state.species.name}</p>
+        <p className="person-world">From: {this.state.homeworld.name}</p>
+        <p className="person-pop">Population: {this.state.homeworld.population}</p>
+        <p className="person-species">Species: {this.state.species.name}</p>
         <button className="fav"></button>
       </div>
     )
