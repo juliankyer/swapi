@@ -3,6 +3,13 @@ button {
   height: 40px;
   width: 100px;
   margin: 30px 0px 20px 20px;
+  background-color: #A48640;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .controls {
@@ -10,10 +17,17 @@ button {
   justify-content: space-between;
 }
 
-.select-buttons {
+.people-button:hover,
+.vehicles-button:hover,
+.planets-button:hover {
+  background-color: #E2D3A4;
 }
 
 .favorites-button {
-  background-color: lightBlue;
+  background-color: #E2D3A4;
   margin: 30px 20px 20px ;
+}
+
+.favorites-button:hover {
+  background-color: #A48640;
 }

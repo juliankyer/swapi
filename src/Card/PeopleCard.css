@@ -22,9 +22,14 @@
   width: 36px;
   height: 35px;
   border: none;
-  background-color: white;
+  background-color: transparent;
   background-image: url('./millennium-falcon.svg');
   background-repeat: no-repeat;
+}
+
+.fav:hover {
+  cursor: pointer;
+  background-image: url('./millennium-falcon0.svg');
 }
 
 p {
