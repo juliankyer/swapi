@@ -69,7 +69,11 @@ class App extends Component {
                       'planetsClicked': true});
     }
   }
-
+  
+  toggleFavorite() {
+    console.log('boom');
+  }
+  
   render() {
     return (
       <div className="App">
@@ -78,7 +82,7 @@ class App extends Component {
              alt='star wars logo'/>
         <SideText film={this.state.film}/>
         <Controls handleClick={ (key)=> this.handleClick(key) }/>
-        <Board data={ this.state }/>
+        <Board toggleFavorite={ () => this.toggleFavorite() } data={ this.state }/>
       </div>
     );
   }

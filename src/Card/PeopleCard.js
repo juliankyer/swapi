@@ -9,7 +9,7 @@ class PeopleCard extends Component {
       species: {},
     }
   }
-
+  
   componentDidMount() {
 
     fetch(this.props.peopleInfo.homeworld)
@@ -37,7 +37,7 @@ class PeopleCard extends Component {
         <p className="person-world">From: {this.state.homeworld.name}</p>
         <p className="person-pop">Population: {this.state.homeworld.population}</p>
         <p className="person-species">Species: {this.state.species.name}</p>
-        <button className="fav"></button>
+        <button className="fav" onClick={ () => this.props.toggleFavorite() }></button>
       </div>
     )
   }
