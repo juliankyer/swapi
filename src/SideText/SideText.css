@@ -4,10 +4,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: white;
-  border: 2px solid black;
+  color: white;
   width: 25%;
-  height: 100vh;
+  height: 100%;
   perspective: 400px;
   text-align: justify;
   line-height: 180%;
@@ -15,21 +14,19 @@
 
 .film {
   position: relative;
-  top: -100px;
-  transform-origin: 30% 100%;
-  animation: crawl 20s;
+  top: -10px;
+  transform-origin: 10% 100%;
+  animation: crawl 80s;
   animation-iteration-count: infinite;
 }
 
 @keyframes crawl {
   0% {
     top: 250px;
-    transform: rotateX(20deg) translateZ(0);
+    transform: rotateX(10deg) translateZ(0);
   }
   100% {
-    top: -6000px;
-    transform: rotateX(25deg) translateZ(-2500px);
+    top: -4000px;
+    transform: rotateX(25deg) translateZ(-1500px);
   }
 }
-
-

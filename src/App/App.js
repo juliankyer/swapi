@@ -42,11 +42,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>Star Wars</header>
+        <img className="logo"
+             src={require("../Star-Wars-Logo.png")}
+             alt='star wars logo'/>
         <SideText film={this.state.film}/>
         <Controls handleClick={ ()=> this.handleClick() }/>
         {this.state.peopleClicked ? <Board peopleInfo={ this.state.people.results }/> : null}
-
       </div>
     );
   }
