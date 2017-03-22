@@ -34,11 +34,11 @@ class PeopleCard extends Component {
   render() {
     return (
       <div className="people-card">
-        <button className="fav">Fav</button>
-        <p>name: {this.props.peopleInfo.name}</p>
-        <p>homeworld: {this.state.homeworld.name}</p>
-        <p>population: {this.state.homeworld.population}</p>
-        <p>species: {this.state.species.name}</p>
+        <p className="person-name">{this.props.peopleInfo.name}</p>
+        <p className="person-world">From {this.state.homeworld.name},</p>
+        <p className="person-pop">population {this.state.homeworld.population}</p>
+        <p className="person-species">{this.state.species.name}</p>
+        <button className="fav"></button>
       </div>
     )
   }

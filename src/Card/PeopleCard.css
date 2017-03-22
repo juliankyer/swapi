@@ -1,0 +1,32 @@
+.people-card {
+  border-top: 2px solid black;
+  width: 200px;
+  /*min-width: 205px;*/
+  height: 175px;
+  float: right;
+  margin: 10px;
+  padding: 10px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.person-name {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.fav {
+  margin: 10px;
+  width: 36px;
+  height: 35px;
+  border: none;
+  background-color: white;
+  background-image: url('./millennium-falcon.svg');
+  background-repeat: no-repeat;
+}
+
+p {
+  margin: 5px;
+}
