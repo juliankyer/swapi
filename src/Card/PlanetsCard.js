@@ -13,10 +13,10 @@ class PlanetsCard extends Component {
     return (
       <div className="planet-card">
         <p className="planet-name">{this.props.planetsInfo.name}</p>
-        <p className="planet-terrain">{this.props.planetsInfo.terrain}</p>
-        <p className="planet-population">population {this.props.planetsInfo.population}</p>
-        <p className="planet-climate">{this.props.planetsInfo.climate}</p>
-        <p className="planet-residents">{this.props.planetsInfo.residents.length}</p>
+        <p className="planet-terrain"> Terrain:  {this.props.planetsInfo.terrain}</p>
+        <p className="planet-population">Population: {this.props.planetsInfo.population}</p>
+        <p className="planet-climate">Climate:  {this.props.planetsInfo.climate}</p>
+        <p className="planet-residents">Residents: {this.props.planetsInfo.residents.length}</p>
         <button className="fav"></button>
       </div>
     )
