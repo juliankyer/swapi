@@ -8,7 +8,8 @@ const Controls = ({ handleClick }) => {
       <div className="select-buttons">
           <button onClick={ () => handleClick('peopleClicked') }
                   className="people-button">People</button>
-          <button className="planets-button">Planets</button>
+          <button onClick={ () => handleClick('planetsClicked') }
+                  className="planets-button">Planets</button>
           <button onClick={ () => handleClick('vehiclesClicked') }
                   className="vehicles-button">Vehicles</button>
       </div>
