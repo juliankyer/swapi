@@ -4,21 +4,21 @@ import PeopleCard from '../Card/PeopleCard';
 import VehiclesCard from '../Card/VehiclesCard';
 import PlanetsCard from '../Card/PlanetsCard';
 
-const Board = ({ data }) => {
+const Board = ({ data, toggleFavorite }) => {
   let pplMap = data.people.results.map((peep, index) => {
-    return (<PeopleCard key={index}
+    return (<PeopleCard toggleFavorite={ toggleFavorite } key={index}
                         peopleInfo={ peep }/>
             )
   })
 
   let vehiclesMap = data.vehicles.results.map((vehicle, index) => {
-    return (<VehiclesCard key={index}
+    return (<VehiclesCard toggleFavorite={ toggleFavorite } key={index}
                         vehiclesInfo={ vehicle }/>
             )
   })
 
   let planetsMap = data.planets.results.map((planet, index) => {
-    return (<PlanetsCard key={index}
+    return (<PlanetsCard toggleFavorite={ toggleFavorite } key={index}
                         planetsInfo={ planet }/>
             )
   })

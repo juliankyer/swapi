@@ -36,7 +36,7 @@ class PlanetsCard extends Component {
         <p className="planet-population">Population: {this.props.planetsInfo.population}</p>
         <p className="planet-climate">Climate:  {this.props.planetsInfo.climate}</p>
         <p className="planet-residents">Residents: {this.state.residents}</p>
-        <button className="fav"></button>
+        <button className="fav" onClick={ () => this.props.toggleFavorite() }></button>
       </div>
     )
   }
