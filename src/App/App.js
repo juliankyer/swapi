@@ -46,11 +46,11 @@ class App extends Component {
 
   handleClick(key) {
     if (key === 'peopleClicked') {
-      this.setState({ 'peopleClicked': !this.state['peopleClicked'],
-                      'vehiclesClicked': !this.state['vehiclesClicked'] });
+      this.setState({ 'peopleClicked': true,
+                      'vehiclesClicked': false });
     } else if (key === 'vehiclesClicked') {
-      this.setState({ 'peopleClicked': !this.state['peopleClicked'],
-                      'vehiclesClicked': !this.state['vehiclesClicked']});
+      this.setState({ 'peopleClicked': false,
+                      'vehiclesClicked': true});
     }
   }
 
