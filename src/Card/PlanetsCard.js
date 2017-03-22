@@ -5,24 +5,27 @@ class PlanetsCard extends Component {
   constructor(props) {
     super();
     this.state = {
-      residents: {},
+      residents: [],
     }
   }
-  
-  checkResidentLength() {
-    if(this.props.planetsInfo.residents.length > 0) {
-      //end up returning a p tag that says no residents
-    } else {
-      let array = this.props.planetsInfo.residents;
-      array.map(resident => {
-        console.log(resident.name)
-        return resident.name})
-    }
+
+  fetchResidents() {
+    let array = this.props.planetsInfo.residents;
+
+    array.forEach(resident => {
+      fetch(resident)
+      .then(response => response.json())
+      .then(json => {
+        this.state.residents.push(json.name)
+        this.setState({residents: this.state.residents})
+      })
+    })
   }
-  
+
   componentDidMount() {
-    this.checkResidentLength();
-    console.log(this.props.planetsInfo.residents);
+    if(this.props.planetsInfo.residents.length > 0) {
+      this.fetchResidents()
+    }
   }
 
   render() {
@@ -32,7 +35,7 @@ class PlanetsCard extends Component {
         <p className="planet-terrain"> Terrain:  {this.props.planetsInfo.terrain}</p>
         <p className="planet-population">Population: {this.props.planetsInfo.population}</p>
         <p className="planet-climate">Climate:  {this.props.planetsInfo.climate}</p>
-        <p className="planet-residents">Residents: {this.props.planetsInfo.residents.length}</p>
+        <p className="planet-residents">Residents: {this.state.residents}</p>
         <button className="fav"></button>
       </div>
     )

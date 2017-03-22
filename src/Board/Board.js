@@ -16,9 +16,8 @@ const Board = ({ data }) => {
                         vehiclesInfo={ vehicle }/>
             )
   })
-  
+
   let planetsMap = data.planets.results.map((planet, index) => {
-    // console.log(planet.name);
     return (<PlanetsCard key={index}
                         planetsInfo={ planet }/>
             )
