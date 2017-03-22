@@ -5,6 +5,10 @@ button {
   margin: 30px 0px 20px 20px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .controls {
   display: flex;
   justify-content: space-between;
