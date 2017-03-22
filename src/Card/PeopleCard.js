@@ -11,7 +11,6 @@ class PeopleCard extends Component {
   }
 
   componentDidMount() {
-    this.setState({ name: this.props.name })
 
     fetch(this.props.peopleInfo.homeworld)
     .then(response => {

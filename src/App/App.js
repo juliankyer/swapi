@@ -11,8 +11,10 @@ class App extends Component {
       film: {},
       people: {results: []},
       vehicles: {results: []},
+      planets: {results: []},
       peopleClicked: true,
-      vehiclesClickec: false
+      vehiclesClickec: false,
+      planetsClicked: false,
     }
   }
 
@@ -42,15 +44,29 @@ class App extends Component {
       .then((json) => {
         this.setState({ vehicles: json })
       });
+      
+      fetch('http://swapi.co/api/planets/')
+      .then((response) => {
+        return response.json()
+      })
+      .then((json) => {
+        this.setState({ planets: json })
+      });
   }
 
   handleClick(key) {
     if (key === 'peopleClicked') {
       this.setState({ 'peopleClicked': true,
-                      'vehiclesClicked': false });
+                      'vehiclesClicked': false,
+                      'planetsClicked': false });
     } else if (key === 'vehiclesClicked') {
       this.setState({ 'peopleClicked': false,
-                      'vehiclesClicked': true});
+                      'vehiclesClicked': true,
+                      'planetsClicked': false });
+    } else {
+      this.setState({ 'peopleClicked': false,
+                      'vehiclesClicked': false,
+                      'planetsClicked': true});
     }
   }
 
