@@ -45,9 +45,13 @@ class App extends Component {
   }
 
   handleClick(key) {
-    console.log(key);
-    console.log(this.state.peopleClicked);
-    this.setState({ [key]: !this.state[key] })
+    if (key === 'peopleClicked') {
+      this.setState({ 'peopleClicked': !this.state['peopleClicked'],
+                      'vehiclesClicked': !this.state['vehiclesClicked'] });
+    } else if (key === 'vehiclesClicked') {
+      this.setState({ 'peopleClicked': !this.state['peopleClicked'],
+                      'vehiclesClicked': !this.state['vehiclesClicked']});
+    }
   }
 
   render() {
