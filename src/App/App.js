@@ -9,50 +9,33 @@ class App extends Component {
     super();
     this.state = {
       film: {},
-      people: {results: []},
-      vehicles: {results: []},
-      planets: {results: []},
+      people: { results: [] },
+      vehicles: { results: [] },
+      planets: { results: [] },
       peopleClicked: true,
-      vehiclesClickec: false,
-      planetsClicked: false,
+      vehiclesClicked: false,
+      planetsClicked: false
     }
   }
-
 
   componentDidMount() {
     const randomNumber = Math.floor(Math.random() * (7 - 1)) + 1;
     fetch(`http://swapi.co/api/films/${randomNumber}/`)
-      .then((response) => {
-        return response.json()
-      })
-      .then((json) => {
-        this.setState({ film: json })
-      });
+      .then(response => response.json())
+      .then(json => this.setState({ film: json }));
 
       fetch('http://swapi.co/api/people/')
-      .then((response) => {
-        return response.json()
-      })
-      .then((json) => {
-        this.setState({ people: json })
-      });
+      .then(response => response.json())
+      .then(json => this.setState({ people: json }));
 
       fetch('http://swapi.co/api/vehicles/')
-      .then((response) => {
-        return response.json()
-      })
-      .then((json) => {
-        this.setState({ vehicles: json })
-      });
-      
+      .then(response => response.json())
+      .then(json => this.setState({ vehicles: json }));
+
       fetch('http://swapi.co/api/planets/')
-      .then((response) => {
-        return response.json()
-      })
-      .then((json) => {
-        this.setState({ planets: json })
-      });
-  }
+      .then(response => response.json())
+      .then(json => this.setState({ planets: json }));
+  };
 
   handleClick(key) {
     if (key === 'peopleClicked') {
@@ -68,40 +51,37 @@ class App extends Component {
                       'vehiclesClicked': false,
                       'planetsClicked': true});
     }
-  }
-  
+  };
+
   toggleFavorite() {
     console.log('boom');
-  }
-  
+  };
+
   render() {
     return (
       <div className="App">
         <img className="logo"
              src={require("../Star-Wars-Logo.png")}
-             alt='star wars logo'/>
+             alt="star wars logo"
+             />
         <SideText film={this.state.film}/>
         <Controls handleClick={ (key)=> this.handleClick(key) }/>
-        <Board toggleFavorite={ () => this.toggleFavorite() } data={ this.state }/>
+        <Board toggleFavorite={ () => this.toggleFavorite() }
+               data={ this.state }
+               />
       </div>
     );
   }
-}
+};
 
 App.propTypes = {
   film: React.PropTypes.object,
-  people: React.PropTypes.array,
-  planets: React.PropTypes.array,
+  people: React.PropTypes.object,
+  planets: React.PropTypes.object,
+  vehicles: React.PropTypes.object,
   peopleClicked: React.PropTypes.string,
-  planetsClicked: React.PropTypes.string
+  planetsClicked: React.PropTypes.string,
+  vehiclesClicked: React.PropTypes.string
 };
 
 export default App;
-
-
-// peopleInfo={ this.state.people.results }
-//        vehiclesInfo={ this.state.vehicles.results }
-//state and fetch live in App
-//sidebar component for random text
-//controls component with buttons for people, planets, vehicles, favorites
-//

@@ -8,13 +8,24 @@ describe('Board', () => {
   it.skip('should className of .board', () => {
     const wrapper = mount(<Board/>);
 
-    expect(wrapper.find('PeopleCard').length).toBe(10)
+    expect(wrapper.find('PersonCard').length).toBe(10);
   })
 
-  it.skip('should have 10 PeopleCard components', () => {
+  it.skip('should className of .board', () => {
     const wrapper = mount(<Board/>);
 
-    expect(wrapper.find('.board').length).toBe(1)
+    expect(wrapper.find('VehicleCard').length).toBe(10);
   })
 
+  it.skip('should className of .board', () => {
+    const wrapper = mount(<Board/>);
+
+    expect(wrapper.find('PlanetCard').length).toBe(10);
+  })
+
+  it.skip('should have 10 PersonCard components', () => {
+    const wrapper = mount(<Board/>);
+
+    expect(wrapper.find('.board').length).toBe(1);
+  })
 });

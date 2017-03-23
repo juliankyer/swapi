@@ -29,14 +29,18 @@ describe('App', () => {
     expect(wrapper.find('Board').length).toBe(1);
   });
 
-  it('should store films, vehicles, planets, people in state', () => {
+  it('should store films, vehicles, planets, people and clicked in state', () => {
     const wrapper = shallow(<App />);
     let mockState = {
       film: {},
-      people: {}
-    }
+      people: {"results": []},
+      vehicles: {"results": []},
+      planets: {"results": []},
+      peopleClicked: true,
+      vehiclesClicked: false,
+      planetsClicked: false
+    };
 
     expect(wrapper.state()).toMatchObject(mockState);
   });
-
 });
