@@ -1,3 +1,7 @@
+p {
+  margin: 5px;
+}
+
 .planet-card {
   display: flex;
   flex-direction: column;
@@ -11,6 +15,10 @@
   width: 300px;
   height: 250px;
   border-top: 2px solid black;
+}
+
+.fav-flag {
+  background-color: #DECA95;
 }
 
 .planet-name {
@@ -31,8 +39,4 @@
 .fav:hover {
   cursor: pointer;
   background-image: url('./millennium-falcon0.svg');
-}
-
-p {
-  margin: 5px;
 }

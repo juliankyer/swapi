@@ -30,7 +30,7 @@ class PersonCard extends Component {
       this.setState({ species: json})
     });
   };
-  
+
   toggleFavorite() {
     this.setState({ favorited: !this.state.favorited })
   }
@@ -57,7 +57,8 @@ class PersonCard extends Component {
 
 PersonCard.propTypes = {
   homeworld: React.PropTypes.object,
-  species: React.PropTypes.object
+  species: React.PropTypes.object,
+  favorited: React.PropTypes.bool
 };
 
 export default PersonCard;

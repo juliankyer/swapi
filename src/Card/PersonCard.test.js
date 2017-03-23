@@ -27,15 +27,12 @@ describe('PersonCard', () => {
     expect(wrapper.find('button').length).toBe(1);
   });
 
-  it('toggleFavorite is called on click of fav button', () => {
-    const mockClick = jest.fn()
-    const wrapper = mount(<PersonCard peopleInfo={ mockData }
-                                      toggleFavorite={ mockClick }
-                                      />);
+  it('Adds a class of .fav-flag on click of the .fav button', () => {
+    const wrapper = mount(<PersonCard peopleInfo={ mockData }/>);
 
     const favButton = wrapper.find('.fav');
     favButton.simulate('click');
 
-    expect(mockClick).toHaveBeenCalled();
+    expect(wrapper.find('.fav-flag').length).toBe(1);
   });
 });
