@@ -17,13 +17,13 @@ describe('App', () => {
     expect(wrapper.find('Controls').length).toBe(1);
   });
 
-  it('renders one Controls component', () => {
+  it('renders one SideText component', () => {
     const wrapper = shallow(<App />);
 
     expect(wrapper.find('SideText').length).toBe(1);
   });
 
-  it('renders one Controls component', () => {
+  it('renders one Board component', () => {
     const wrapper = shallow(<App />);
 
     expect(wrapper.find('Board').length).toBe(1);

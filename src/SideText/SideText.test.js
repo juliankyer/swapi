@@ -12,13 +12,13 @@ describe('SideText', () => {
 
   it('has a div with a className .side-text', () => {
 
-    const wrapper = shallow(<SideText film={mockFilm}/>);
+    const wrapper = shallow(<SideText film={ mockFilm }/>);
 
     expect(wrapper.find('.side-text').length).toBe(1);
   });
 
   it('has three p tags with the class of .film', () => {
-    const wrapper = shallow(<SideText film={mockFilm}/>);
+    const wrapper = shallow(<SideText film={ mockFilm }/>);
 
     expect(wrapper.find('.film').length).toBe(3);
   });

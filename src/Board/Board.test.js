@@ -82,7 +82,7 @@ describe('Board', () => {
     expect(wrapper.find('VehicleCard').length).toBe(2);
   })
 
-  it.skip('should render a PlanetCard component when planetsClicked is true', () => {
+  xit('should render a PlanetCard component when planetsClicked is true', () => {
     const wrapper = mount(<Board data={ mockData3 }/>);
 
     expect(wrapper.find('PlanetCard').length).toBe(1);
