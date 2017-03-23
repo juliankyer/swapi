@@ -2,7 +2,7 @@ import React from 'react';
 import './Controls.css';
 
 
-const Controls = ({ handleClick, handleFavorites }) => {
+const Controls = ({ handleClick, handleFavorites, data }) => {
   return (
     <div className="controls">
       <div className="select-buttons">
@@ -17,7 +17,7 @@ const Controls = ({ handleClick, handleFavorites }) => {
         {<img className="fav-icon-button"
              src={require("../Card/millennium-falcon.svg")}
              alt="star wars logo"
-             />}Favorites</button>
+             />}Favorites { data }</button>
     </div>
   )
 };

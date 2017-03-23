@@ -1,3 +1,7 @@
+p {
+  margin: 5px;
+}
+
 .people-card {
   display: flex;
   flex-direction: column;
@@ -9,6 +13,10 @@
   width: 200px;
   height: 175px;
   border-top: 2px solid black;
+}
+
+.fav-flag {
+  background-color: #DECA95;
 }
 
 .person-name {
@@ -29,8 +37,4 @@
 .fav:hover {
   cursor: pointer;
   background-image: url('./millennium-falcon0.svg');
-}
-
-p {
-  margin: 5px;
 }

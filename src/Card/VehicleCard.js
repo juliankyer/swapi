@@ -9,8 +9,7 @@ const VehicleCard = (props) => {
         <p className="vehicle-model">Model: { props.vehiclesInfo.model }</p>
         <p className="vehicle-class">Class: { props.vehiclesInfo.vehicle_class }</p>
         <p className="vehicle-passengers">Passengers:  { props.vehiclesInfo.passengers }</p>
-        <button className="fav"
-                onClick={ () => props.toggleFavorite() }>
+        <button className="fav" >
         </button>
       </div>
     )
