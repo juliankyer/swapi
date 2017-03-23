@@ -21,20 +21,36 @@ class App extends Component {
   componentDidMount() {
     const randomNumber = Math.floor(Math.random() * (7 - 1)) + 1;
     fetch(`http://swapi.co/api/films/${randomNumber}/`)
-      .then(response => response.json())
-      .then(json => this.setState({ film: json }));
+      .then(response => {
+        return response.json()
+      })
+      .then(json => {
+        this.setState({ film: json })
+      });
 
       fetch('http://swapi.co/api/people/')
-      .then(response => response.json())
-      .then(json => this.setState({ people: json }));
+      .then(response => {
+        return response.json()
+      })
+      .then(json => {
+        this.setState({ people: json })
+      });
 
       fetch('http://swapi.co/api/vehicles/')
-      .then(response => response.json())
-      .then(json => this.setState({ vehicles: json }));
+      .then(response => {
+        return response.json()
+      })
+      .then(json => {
+        this.setState({ vehicles: json })
+      });
 
       fetch('http://swapi.co/api/planets/')
-      .then(response => response.json())
-      .then(json => this.setState({ planets: json }));
+      .then(response => {
+        return response.json()
+      })
+      .then(json => {
+        this.setState({ planets: json })
+      });
   };
 
   handleClick(key) {
