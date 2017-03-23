@@ -17,4 +17,15 @@ describe('Controls', () => {
     expect(wrapper.find('button').length).toBe(4);
   });
 
+  it('handleClick is called on click of button', () => {
+    const mockClick = jest.fn()
+    const wrapper = shallow(<Controls handleClick={ mockClick }/>);
+
+    const planetButton = wrapper.find('.planets-button');
+    planetButton.simulate('click');
+
+    expect(mockClick).toHaveBeenCalled();
+  });
+
+  
 });
