@@ -62,6 +62,14 @@ describe('Board', () => {
      expect(wrapper.find('.board').length).toBe(1);
    })
 
+  it('should only render whichever component is marked as clicked', () => {
+    const wrapper = mount(<Board data={ mockData }/>);
+
+    expect(wrapper.find('PersonCard').length).toBe(1);
+    expect(wrapper.find('VehicleCard').length).toBe(0);
+    expect(wrapper.find('PlanetCard').length).toBe(0);
+  })
+
   it('should render PersonCard component when peopleClicked is true', () => {
     const wrapper = mount(<Board data={ mockData }/>);
 
@@ -79,5 +87,4 @@ describe('Board', () => {
 
     expect(wrapper.find('PlanetCard').length).toBe(1);
   })
-
 });
