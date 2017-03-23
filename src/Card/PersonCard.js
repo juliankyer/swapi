@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './PersonCard.css';
+import classNames from 'classnames';
+
 
 class PersonCard extends Component {
   constructor(props) {
@@ -7,6 +9,7 @@ class PersonCard extends Component {
     this.state = {
       homeworld: {},
       species: {},
+      favorited: false
     }
   };
 
@@ -27,16 +30,25 @@ class PersonCard extends Component {
       this.setState({ species: json})
     });
   };
+  
+  toggleFavorite() {
+    this.setState({ favorited: !this.state.favorited })
+  }
 
   render() {
+    const identifiers = classNames({
+      'people-card': this.state,
+      'fav-flag': this.state.favorited,
+      'unfav-flag': !this.state.favorited
+    });
     return (
-      <div className="people-card">
+      <div className={identifiers}>
         <p className="person-name">{ this.props.peopleInfo.name }</p>
         <p className="person-world">From: { this.state.homeworld.name }</p>
         <p className="person-pop">Population: { this.state.homeworld.population }</p>
         <p className="person-species">Species: { this.state.species.name }</p>
         <button className="fav"
-                onClick={ () => this.props.toggleFavorite() }>
+                onClick={ () => this.toggleFavorite() }>
         </button>
       </div>
     )
