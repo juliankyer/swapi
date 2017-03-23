@@ -14,7 +14,8 @@ class App extends Component {
       planets: { results: [] },
       peopleClicked: true,
       vehiclesClicked: false,
-      planetsClicked: false
+      planetsClicked: false,
+      favoriteArray: []
     }
   }
 
@@ -69,9 +70,16 @@ class App extends Component {
     }
   };
 
-  toggleFavorite() {
-    console.log('boom');
+  handleFavorites() {
+    let findUnFaves = document.querySelectorAll('.unfav-flag');
+    findUnFaves.toggle();
+    
   };
+  
+  addFavorite(data) {
+    this.state.favoriteArray.push(data)
+    this.setState({ favoriteArray: this.state.favoriteArray });
+  }
 
   render() {
     return (
@@ -81,10 +89,8 @@ class App extends Component {
              alt="star wars logo"
              />
         <SideText film={this.state.film}/>
-        <Controls handleClick={ (key)=> this.handleClick(key) }/>
-        <Board toggleFavorite={ () => this.toggleFavorite() }
-               data={ this.state }
-               />
+        <Controls handleFavorites={ () => this.handleFavorites() } handleClick={ (key)=> this.handleClick(key) }/>
+        <Board addFavorite={ () => this.addFavorite() } data={ this.state } />
       </div>
     );
   }
