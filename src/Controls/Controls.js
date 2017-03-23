@@ -7,16 +7,19 @@ const Controls = ({ handleClick }) => {
     <div className="controls">
       <div className="select-buttons">
           <button onClick={ () => handleClick('peopleClicked') }
-                  className="people-button">People</button>
+                  className="controls-button">People</button>
           <button onClick={ () => handleClick('planetsClicked') }
-                  className="planets-button">Planets</button>
+                  className="planets-button controls-button">Planets</button>
           <button onClick={ () => handleClick('vehiclesClicked') }
-                  className="vehicles-button">Vehicles</button>
+                  className="vehicles-button controls-button">Vehicles</button>
       </div>
-      <button className="favorites-button">Favorites</button>
+      <button className="favorites-button">
+        {<img className="fav-icon-button"
+             src={require("../Card/millennium-falcon.svg")}
+             alt="star wars logo"
+             />}Favorites</button>
     </div>
   )
-}
-//make call for people in here on click
+};
 
 export default Controls;

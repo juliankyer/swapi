@@ -29,14 +29,36 @@ describe('App', () => {
     expect(wrapper.find('Board').length).toBe(1);
   });
 
-  it('should store films, vehicles, planets, people in state', () => {
+  it('should store films, vehicles, planets, people and clicked in state', () => {
     const wrapper = shallow(<App />);
     let mockState = {
       film: {},
-      people: {}
-    }
+      people: {"results": []},
+      vehicles: {"results": []},
+      planets: {"results": []},
+      peopleClicked: true,
+      vehiclesClicked: false,
+      planetsClicked: false
+    };
 
     expect(wrapper.state()).toMatchObject(mockState);
   });
 
+  it('should only change one state to true when component button is clicked', () => {
+    const wrapper = mount(<App />);
+
+    const planetButton = wrapper.find('.planets-button');
+    planetButton.simulate('click')
+
+    expect(wrapper.state().planetsClicked).toBe(true);
+    expect(wrapper.state().vehiclesClicked).toBe(false);
+    expect(wrapper.state().peopleClicked).toBe(false);
+
+    const vehicleButton = wrapper.find('.vehicles-button');
+    vehicleButton.simulate('click')
+
+    expect(wrapper.state().vehiclesClicked).toBe(true);
+    expect(wrapper.state().planetsClicked).toBe(false);
+    expect(wrapper.state().peopleClicked).toBe(false);
+  });
 });
