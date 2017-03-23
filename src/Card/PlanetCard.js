@@ -5,7 +5,8 @@ class PlanetCard extends Component {
   constructor(props) {
     super();
     this.state = {
-      residents: []
+      residents: [],
+      noResidents: ''
     }
   };
 
@@ -25,6 +26,8 @@ class PlanetCard extends Component {
   componentDidMount() {
     if(this.props.planetsInfo.residents.length > 0) {
       this.fetchResidents()
+    } else {
+      this.setState({noResidents: 'unknown'})
     }
   };
 
@@ -35,7 +38,7 @@ class PlanetCard extends Component {
         <p className="planet-terrain"> Terrain:  { this.props.planetsInfo.terrain }</p>
         <p className="planet-population">Population: { this.props.planetsInfo.population }</p>
         <p className="planet-climate">Climate:  { this.props.planetsInfo.climate }</p>
-        <p className="planet-residents">Residents: { this.state.residents }</p>
+        <p className="planet-residents">Residents: { this.state.residents.length ? this.state.residents : this.state.noResidents }</p>
         <button className="fav"
                 onClick={ () => this.props.toggleFavorite() }>
         </button>
@@ -46,6 +49,7 @@ class PlanetCard extends Component {
 
 PlanetCard.propTypes = {
   residents: React.PropTypes.array,
+  noResidents: React.PropTypes.array
 };
 
 export default PlanetCard;
