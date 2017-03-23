@@ -11,7 +11,7 @@ const Controls = ({ handleClick }) => {
           <button onClick={ () => handleClick('planetsClicked') }
                   className="planets-button controls-button">Planets</button>
           <button onClick={ () => handleClick('vehiclesClicked') }
-                  className="controls-button">Vehicles</button>
+                  className="vehicles-button controls-button">Vehicles</button>
       </div>
       <button className="favorites-button">
         {<img className="fav-icon-button"

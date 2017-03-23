@@ -44,12 +44,21 @@ describe('App', () => {
     expect(wrapper.state()).toMatchObject(mockState);
   });
 
-  it('should change state when component button is clicked', () => {
+  it('should only change one state to true when component button is clicked', () => {
     const wrapper = mount(<App />);
 
-    const button = wrapper.find('.planets-button');
-    button.simulate('click')
+    const planetButton = wrapper.find('.planets-button');
+    planetButton.simulate('click')
 
     expect(wrapper.state().planetsClicked).toBe(true);
+    expect(wrapper.state().vehiclesClicked).toBe(false);
+    expect(wrapper.state().peopleClicked).toBe(false);
+
+    const vehicleButton = wrapper.find('.vehicles-button');
+    vehicleButton.simulate('click')
+
+    expect(wrapper.state().vehiclesClicked).toBe(true);
+    expect(wrapper.state().planetsClicked).toBe(false);
+    expect(wrapper.state().peopleClicked).toBe(false);
   });
 });
