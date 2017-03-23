@@ -16,14 +16,28 @@
 .controls {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap-reverse;
 }
 
 .favorites-button {
+  align-content: center;
+  margin: 30px 20px 20px;
+  width: 150px;
   background-color: #E2D3A4;
-  margin: 30px 20px 20px ;
 }
 
 .favorites-button:hover {
   cursor: pointer;
   background-color: #A48640;
+}
+
+.fav-icon-button {
+  height: 11px;
+  padding-right: 4px;
+}
+
+@media (max-width: 735px) {
+  .controls {
+    justify-content: center;
+  }
 }

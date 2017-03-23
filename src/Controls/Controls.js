@@ -13,10 +13,13 @@ const Controls = ({ handleClick }) => {
           <button onClick={ () => handleClick('vehiclesClicked') }
                   className="controls-button">Vehicles</button>
       </div>
-      <button className="favorites-button">Favorites</button>
+      <button className="favorites-button">
+        {<img className="fav-icon-button"
+             src={require("../Card/millennium-falcon.svg")}
+             alt="star wars logo"
+             />}Favorites</button>
     </div>
   )
-}
-//make call for people in here on click
+};
 
 export default Controls;
