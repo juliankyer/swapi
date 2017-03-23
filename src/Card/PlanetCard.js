@@ -15,11 +15,13 @@ class PlanetCard extends Component {
 
     array.forEach(resident => {
       fetch(resident)
-      .then(response => response.json())
+      .then(response => {
+        return response.json()
+      })
       .then(json => {
         this.state.residents.push(json.name)
         this.setState({residents: this.state.residents})
-      })
+      });
     })
   };
 

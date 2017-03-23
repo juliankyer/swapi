@@ -12,12 +12,20 @@ class PersonCard extends Component {
 
   componentDidMount() {
     fetch(this.props.peopleInfo.homeworld)
-    .then(response => response.json())
-    .then(json => this.setState({ homeworld: json}))
+    .then(response => {
+      return response.json()
+    })
+    .then(json => {
+      this.setState({ homeworld: json})
+    });
 
     fetch(this.props.peopleInfo.species)
-    .then(response => response.json())
-    .then(json => this.setState({ species: json}))
+    .then(response => {
+      return response.json()
+    })
+    .then(json => {
+      this.setState({ species: json})
+    });
   };
 
   render() {
