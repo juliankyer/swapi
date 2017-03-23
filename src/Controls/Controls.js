@@ -9,7 +9,7 @@ const Controls = ({ handleClick }) => {
           <button onClick={ () => handleClick('peopleClicked') }
                   className="controls-button">People</button>
           <button onClick={ () => handleClick('planetsClicked') }
-                  className="controls-button">Planets</button>
+                  className="planets-button controls-button">Planets</button>
           <button onClick={ () => handleClick('vehiclesClicked') }
                   className="controls-button">Vehicles</button>
       </div>

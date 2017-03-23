@@ -43,4 +43,13 @@ describe('App', () => {
 
     expect(wrapper.state()).toMatchObject(mockState);
   });
+
+  it('should change state when component button is clicked', () => {
+    const wrapper = mount(<App />);
+
+    const button = wrapper.find('.planets-button');
+    button.simulate('click')
+
+    expect(wrapper.state().planetsClicked).toBe(true);
+  });
 });
