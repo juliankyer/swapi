@@ -30,7 +30,7 @@ describe('PlanetCard', () => {
   it('should render five p tags and one button', () => {
     const wrapper = shallow(<PlanetCard planetsInfo={ mockData }/>);
 
-    expect(wrapper.find('p').length).toBe(5);
+    expect(wrapper.find('p').length).toBe(8);
     expect(wrapper.find('button').length).toBe(1);
   })
 
