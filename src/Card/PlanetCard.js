@@ -41,17 +41,21 @@ class PlanetCard extends Component {
 
   render() {
     const identifiers = classNames({
-      'people-card': this.state,
+      'planet-card': this.state,
+      'card': this.state,
       'fav-flag': this.state.favorited,
       'unfav-flag': !this.state.favorited
     });
     return (
       <div className={identifiers}>
         <p className="planet-name">{ this.props.planetsInfo.name }</p>
-        <p className="planet-terrain"> Terrain:  { this.props.planetsInfo.terrain }</p>
-        <p className="planet-population">Population: { this.props.planetsInfo.population }</p>
-        <p className="planet-climate">Climate:  { this.props.planetsInfo.climate }</p>
-        <p className="planet-residents">Residents: { this.state.residents.length ? this.state.residents : this.state.noResidents } </p>
+        <p className="planet-terrain">{ this.props.planetsInfo.terrain }</p>
+        <p className="bold-text">Population:</p>
+        <p className="planet-population">{ this.props.planetsInfo.population }</p>
+        <p className="bold-text">Climate:</p>
+        <p className="planet-climate">{ this.props.planetsInfo.climate }</p>
+        <p className="bold-text">Famous Residents</p>
+        <p className="planet-residents">{ this.state.residents.length ? this.state.residents : this.state.noResidents } </p>
         <button className="fav"
                 onClick={ () => this.toggleFavorite() }>
         </button>

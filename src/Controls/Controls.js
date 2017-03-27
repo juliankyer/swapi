@@ -13,11 +13,10 @@ const Controls = ({ handleClick, handleFavorites, data }) => {
           <button onClick={ () => handleClick('vehiclesClicked') }
                   className="vehicles-button controls-button">Vehicles</button>
       </div>
-      <button onClick={ () => handleFavorites() } className="favorites-button">
-        {<img className="fav-icon-button"
-             src={require("../Card/millennium-falcon.svg")}
-             alt="star wars logo"
-             />}Favorites { data }</button>
+      <button onClick={ () => handleFavorites() } 
+              id="favorites-button" 
+              className="favorites-button">
+        Favorites</button>
     </div>
   )
 };

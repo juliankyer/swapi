@@ -4,9 +4,9 @@ import PersonCard from '../Card/PersonCard';
 import VehicleCard from '../Card/VehicleCard';
 import PlanetCard from '../Card/PlanetCard';
 
-const Board = ({ data, addFavorite }) => {
+const Board = ({ data, handleFavorites }) => {
   let pplMap = data.people.results.map((peep, index) => {
-    return (<PersonCard addFavorite={ addFavorite } key={index} peopleInfo={ peep } />)
+    return (<PersonCard key={index} peopleInfo={ peep } />)
   });
 
   let vehiclesMap = data.vehicles.results.map((vehicle, index) => {

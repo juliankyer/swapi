@@ -1,4 +1,4 @@
-.controls-button, .favorites-button {
+.controls-button, .favorites-button, .show-all {
   border: 2px solid black;
   height: 40px;
   width: 100px;
@@ -19,7 +19,7 @@
   flex-wrap: wrap-reverse;
 }
 
-.favorites-button {
+.favorites-button, .show-all {
   align-content: center;
   margin: 30px 20px 20px;
   width: 150px;

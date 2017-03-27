@@ -38,6 +38,7 @@ class PersonCard extends Component {
   render() {
     const identifiers = classNames({
       'people-card': this.state,
+      'card': this.state,
       'fav-flag': this.state.favorited,
       'unfav-flag': !this.state.favorited
     });

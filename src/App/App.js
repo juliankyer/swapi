@@ -16,7 +16,7 @@ class App extends Component {
       vehiclesClicked: false,
       planetsClicked: false,
       favoriteArray: [],
-      favCount: 0
+      favsOnly: false
     }
   }
 
@@ -72,13 +72,36 @@ class App extends Component {
   };
 
   addFavorite(data) {
+    debugger;
     this.state.favoriteArray.push(data)
     this.setState({ favoriteArray: this.state.favoriteArray });
   };
 
-  handleFavorites() {
-    let findFaves = document.querySelectorAll('.fav-flag');
-    this.setState({favCount: findFaves.length})
+  handleFavorites(status) {
+    let favoriteButton = document.querySelector('#favorites-button');
+    let allCards = document.querySelectorAll('.card');
+
+    
+    if (favoriteButton.className === 'favorites-button') {
+      this.setState({favsOnly: true});
+      favoriteButton.innerText = 'SHOW ALL';
+      favoriteButton.className = 'show-all';
+      
+      allCards.forEach( (card) => {
+        if(card.classList[2] !== 'fav-flag') {
+          card.style = 'display: none'
+        } 
+      });  
+      
+    } else {
+      this.setState({favsOnly: false});
+      favoriteButton.innerText = 'FAVORITES';
+      favoriteButton.className = 'favorites-button';
+      
+      allCards.forEach ( (card) => {
+        card.style = 'display: flex';
+      });      
+    }
   };
 
 
@@ -91,7 +114,7 @@ class App extends Component {
              />
         <SideText film={this.state.film}/>
         <Controls handleFavorites={ () => this.handleFavorites() } handleClick={ (key)=> this.handleClick(key)} data={ this.state.favCount }/>
-        <Board addFavorite={ () => this.addFavorite() } data={ this.state } />
+        <Board data={ this.state } />
       </div>
     );
   }
