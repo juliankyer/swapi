@@ -36,7 +36,7 @@ describe('VehicleCard', () => {
 
   xit('toggleFavorite is called on click of fav button', () => {
     const mockClick = jest.fn()
-    const wrapper = shallow(<VehicleCard vehiclesInfo={ mockData }
+    const wrapper = mount(<VehicleCard vehiclesInfo={ mockData }
                                          toggleFavorite={ mockClick }
                                          />);
 
